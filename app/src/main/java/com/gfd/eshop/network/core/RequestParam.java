@@ -14,10 +14,11 @@ import java.lang.annotation.RetentionPolicy;
  */
 public abstract class RequestParam {
 
-    public static final int SESSION_NO_NEED = 0;
-    public static final int SESSION_OPTIONAL = 1;
-    public static final int SESSION_MANDATORY = 2;
+    public static final int SESSION_NO_NEED = 0;//不必
+    public static final int SESSION_OPTIONAL = 1;//可选
+    public static final int SESSION_MANDATORY = 2;//必须
 
+    //枚举类型
     @IntDef({SESSION_NO_NEED, SESSION_OPTIONAL, SESSION_MANDATORY})
     @Retention(RetentionPolicy.SOURCE)
     public @interface SessionUsage {

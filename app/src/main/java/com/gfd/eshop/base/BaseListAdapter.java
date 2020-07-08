@@ -22,22 +22,22 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseListAdapter<T, V extends BaseListAdapter.ViewHolder> extends BaseAdapter {
 
-    private final List<T> mDataSet = new ArrayList<>();
+    private final List<T> mDataSet = new ArrayList<>();//数据源
 
 
     @Override public final int getCount() {
         return mDataSet.size();
-    }
+    }//获得适配器的大小
 
-    @Override public final T getItem(int position) {
+    @Override public final T getItem(int position) {//获得第几个数据
         return mDataSet.get(position);
     }
-
+    //获得第几个数据id
     @Override public long getItemId(int position) {
         return 0;
     }
 
-    @Override public final View getView(int position, View convertView, ViewGroup parent) {
+    @Override public final View getView(int position, View convertView, ViewGroup parent) {//获得item
 
         View itemView = createItemViewIfNotExist(convertView, parent);
 
@@ -47,19 +47,23 @@ public abstract class BaseListAdapter<T, V extends BaseListAdapter.ViewHolder> e
         return itemView;
     }
 
+    //重新设置数据源
     public void reset(@Nullable List<T> data) {
         mDataSet.clear();
         if (data != null) mDataSet.addAll(data);
         notifyDataSetChanged();
     }
 
+    //添加数据源
     public void addAll(@Nullable List<T> data) {
         if (data != null) mDataSet.addAll(data);
         notifyDataSetChanged();
     }
 
+    //获得xml布局视图
     @LayoutRes protected abstract int getItemViewLayout();
 
+    //
     protected abstract V getItemViewHolder(View itemView);
 
     private View createItemViewIfNotExist(View itemView, ViewGroup parent) {
@@ -70,7 +74,16 @@ public abstract class BaseListAdapter<T, V extends BaseListAdapter.ViewHolder> e
         }
         return itemView;
     }
+/*
 
+要想使用 ListView 就需要编写一个 Adapter 将数据适配到 ListView上，而为了节省资源提高运行效率，
+一般自定义类 ViewHolder 来减少 findViewById() 的使用以及避免过多地 inflate view，从而实现目标。
+
+作者：李铭淋
+链接：https://www.jianshu.com/p/a14feb480804
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ */
     public abstract class ViewHolder {
 
         protected final View mItemView;

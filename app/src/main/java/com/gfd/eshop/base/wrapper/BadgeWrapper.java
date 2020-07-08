@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.gfd.eshop.R;
 import com.readystatesoftware.viewbadger.BadgeView;
-
+//QQ提醒红色点
 public class BadgeWrapper {
 
     private BadgeView mBadgeView;

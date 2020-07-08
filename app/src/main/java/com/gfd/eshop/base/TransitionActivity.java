@@ -6,10 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.gfd.eshop.R;
-
+//过度动画
 public abstract class TransitionActivity extends AppCompatActivity {
 
 
+    //菜单按钮
     @Override public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == android.R.id.home) {
@@ -20,6 +21,7 @@ public abstract class TransitionActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //开始
     @Override public void startActivity(Intent intent) {
         super.startActivity(intent);
         setTransitionAnimation(true);
